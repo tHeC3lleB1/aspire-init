@@ -2,7 +2,9 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 // ── Infrastructure ────────────────────────────────────────────────────────────
 
-var postgres = builder.AddPostgres("postgres")
+var pgPassword = builder.AddParameter("postgres-password", secret: true);
+
+var postgres = builder.AddPostgres("postgres", password: pgPassword)
     .WithDataVolume()
     .AddDatabase("documentdb");
 
@@ -31,11 +33,12 @@ builder.AddProject<Projects.AspireInit_AgentWorker>("agent-worker")
     .WithReference(redis)
     .WithReference(rabbitmq)
     .WithReference(parseWorker.GetEndpoint("http"))
-    // OpenAI key: set in appsettings.Development.json → OpenAI:ApiKey
-    // or via env var: OPENAI__APIKEY
+    .WithEnvironment("OpenAI__ApiKey", builder.Configuration["OpenAI:ApiKey"])
+    .WithEnvironment("OpenAI__Model", builder.Configuration["OpenAI:Model"] ?? "gpt-4o-mini")
     .WaitFor(postgres)
     .WaitFor(redis)
     .WaitFor(rabbitmq)
-    .WaitFor(parseWorker);
+    .WaitFor(parseWorker)
+    .WaitFor(documentApi);
 
 builder.Build().Run();
