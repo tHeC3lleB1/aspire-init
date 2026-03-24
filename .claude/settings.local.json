@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(gh repo:*)",
+      "Bash(dotnet --version)",
+      "Bash(dotnet workload:*)",
+      "Bash(dotnet new:*)",
+      "Bash(sudo dotnet:*)",
+      "Bash(nuget search:*)",
+      "Bash(dotnet --list-sdks)",
+      "Bash(dotnet --list-runtimes)",
+      "Bash(dotnet package:*)",
+      "Bash(dotnet sln:*)",
+      "Bash(ls:*)",
+      "Bash(dotnet restore:*)",
+      "Bash(dotnet build:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Npgsql" Version="13.2.0" />
+    <PackageReference Include="Aspire.StackExchange.Redis" Version="13.2.0" />
+    <PackageReference Include="Aspire.RabbitMQ.Client" Version="13.2.0" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.74.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.74.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../AspireInit.ServiceDefaults/AspireInit.ServiceDefaults.csproj" />
+    <ProjectReference Include="../AspireInit.Contracts/AspireInit.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

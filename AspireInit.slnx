@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AspireInit.AgentWorker/AspireInit.AgentWorker.csproj" />
+    <Project Path="src/AspireInit.AppHost/AspireInit.AppHost.csproj" />
+    <Project Path="src/AspireInit.Contracts/AspireInit.Contracts.csproj" />
+    <Project Path="src/AspireInit.DocumentAPI/AspireInit.DocumentAPI.csproj" />
+    <Project Path="src/AspireInit.ServiceDefaults/AspireInit.ServiceDefaults.csproj" />
+  </Folder>
+</Solution>
